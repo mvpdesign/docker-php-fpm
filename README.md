@@ -10,20 +10,10 @@ You'll need to configure your application to use any services you enabled:
 | ------- | -------- | ----------- |
 | php-fpm | php-fpm  | 9000        |
 
-## XDebug
 
-Xdebug is installed as part of the php-fpm Dockerfile. Currently, the `xdebug-beta` is installed on the container due to issues with stable version of XDebug and PHP 7.3.x. Below you will find the default xdebug configuration.
+## XDebug and Visual Studio Code
 
-```
-xdebug.remote_enable=1
-xdebug.idekey=docker
-xdebug.remote_autostart=1
-xdebug.remote_host=docker.for.mac.localhost
-```
-
-### XDebug and Visual Studio Code
-
-A `.vscode/launch.json` file is include in the repo, however for reference the needed VSCode launch.json` config is attached below.
+Here is the settings for connecting VS Code and XDebug
 
 ```
 {
@@ -33,7 +23,7 @@ A `.vscode/launch.json` file is include in the repo, however for reference the n
     "port": 9000,
     "log": true,
     "pathMappings": {
-        "/application": "${workspaceFolder}"
+        "/var/www/html": "${workspaceFolder}"
     }
 }
 ```
