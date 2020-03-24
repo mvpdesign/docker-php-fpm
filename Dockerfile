@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.3-fpm-alpine
 
 # install the PHP extensions we need (https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions)
 RUN set -ex; \
@@ -11,7 +11,7 @@ RUN set -ex; \
     libzip-dev \
     ; \
     \
-    docker-php-ext-configure gd --with-jpeg; \
+    docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
     docker-php-ext-install -j "$(nproc)" \
     bcmath \
     exif \
